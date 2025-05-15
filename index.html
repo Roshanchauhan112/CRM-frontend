@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h1>CRM Suite</h1>
+                </div>
+            </div>
+
+            <div class="sidebar-content">
+                <div class="sidebar-group">
+                    <div class="sidebar-group-label">Main Menu</div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item active">
+                            <a href="#" class="sidebar-menu-button">
+                                <i class="fas fa-home"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="#" class="sidebar-menu-button">
+                                <i class="fas fa-comment"></i>
+                                <span>Messages</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a href="#" class="sidebar-menu-button">
+                                <i class="fas fa-calendar"></i>
+                                <span>Calendar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-group">
+                    <div class="sidebar-group-label">Modules</div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item" id="travel-tab">
+                            <a href="#" class="sidebar-menu-button">
+                                <i class="fas fa-users"></i>
+                                <span>Travel Management</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item" id="service-tab">
+                            <a href="#" class="sidebar-menu-button">
+                                <i class="fas fa-project-diagram"></i>
+                                <span>Service Provider</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item" id="coaching-tab">
+                            <a href="#" class="sidebar-menu-button">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Coaching Institute</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                        <a href="#" class="sidebar-menu-button">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" class="sidebar-menu-button">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navigation -->
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button id="sidebar-toggle" class="sidebar-trigger">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="search" placeholder="Search..." class="search-input">
+                    </div>
+                </div>
+
+                <div class="nav-right">
+                    <button class="notification-btn">
+                        <i class="fas fa-inbox"></i>
+                    </button>
+
+                    <div class="dropdown user-dropdown">
+                        <button class="dropdown-trigger user-avatar">
+                            <img src="https://via.placeholder.com/40" alt="User">
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-header">
+                                <p class="user-name">John Doe</p>
+                                <p class="user-email">john.doe@example.com</p>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Log out</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="content-area">
+                <div class="content-header">
+                    <h1 id="module-title">Travel Management CRM</h1>
+                    <button class="add-new-btn" id="add-new-btn">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New</span>
+                    </button>
+                </div>
+
+                <!-- Module Content -->
+                <div class="module-content">
+                    <!-- Travel Management Module -->
+                    <div class="module-section active" id="travel-module">
+                        <div class="tabs">
+                            <div class="tabs-list">
+                                <button class="tab-trigger active" data-tab="clients">Client Profiles</button>
+                                <button class="tab-trigger" data-tab="trips">Trip Management</button>
+                                <button class="tab-trigger" data-tab="followups">Follow-ups</button>
+                                <button class="tab-trigger" data-tab="calendar">Calendar</button>
+                            </div>
+
+                            <!-- Clients Tab -->
+                            <div class="tab-content active" id="clients-tab">
+                                <div class="card-grid">
+                                    <!-- Client Card 1 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="user-info">
+                                                <div class="avatar">
+                                                    <img src="https://via.placeholder.com/40" alt="Emma Thompson">
+                                                </div>
+                                                <div>
+                                                    <h3 class="card-title">Emma Thompson</h3>
+                                                    <p class="card-subtitle">emma@example.com</p>
+                                                </div>
+                                            </div>
+                                            <span class="badge badge-primary">Active</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-grid">
+                                                <div class="info-row">
+                                                    <span class="info-label">Total Trips:</span>
+                                                    <span class="info-value">3</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="info-label">Next Trip:</span>
+                                                    <span class="info-value">Paris, France</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="info-label">Date:</span>
+                                                    <span class="info-value">Jun 15, 2025</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="info-label">Last Contact:</span>
+                                                    <span class="info-value">2 days ago</span>
+                                                </div>
+                                                <div class="progress-container">
+                                                    <div class="progress-header">
+                                                        <span class="info-label">Trip Planning:</span>
+                                                        <span class="info-value">75%</span>
+                                                    </div>
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill" style="width: 75%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-comment"></i>
+                                                Message
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">View Profile</a>
+                                                    <a href="#" class="dropdown-item">Edit Details</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="dropdown-item">Add Trip</a>
+                                                    <a href="#" class="dropdown-item">Schedule Follow-up</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Client Card 2 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="user-info">
+                                                <div class="avatar">
+                                                    <img src="https://via.placeholder.com/40" alt="Michael Chen">
+                                                </div>
+                                                <div>
+                                                    <h3 class="card-title">Michael Chen</h3>
+                                                    <p class="card-subtitle">michael@example.com</p>
+                                                </div>
+                                            </div>
+                                            <span class="badge badge-primary">Active</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-grid">
+                                                <div class="info-row">
+                                                    <span class="info-label">Total Trips:</span>
+                                                    <span class="info-value">1</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="info-label">Next Trip:</span>
+                                                    <span class="info-value">Tokyo, Japan</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="info-label">Date:</span>
+                                                    <span class="info-value">Jul 22, 2025</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="info-label">Last Contact:</span>
+                                                    <span class="info-value">5 days ago</span>
+                                                </div>
+                                                <div class="progress-container">
+                                                    <div class="progress-header">
+                                                        <span class="info-label">Trip Planning:</span>
+                                                        <span class="info-value">40%</span>
+                                                    </div>
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill" style="width: 40%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-comment"></i>
+                                                Message
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">View Profile</a>
+                                                    <a href="#" class="dropdown-item">Edit Details</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="dropdown-item">Add Trip</a>
+                                                    <a href="#" class="dropdown-item">Schedule Follow-up</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Client Card 3 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="user-info">
+                                                <div class="avatar">
+                                                    <img src="https://via.placeholder.com/40" alt="Sophia Rodriguez">
+                                                </div>
+                                                <div>
+                                                    <h3 class="card-title">Sophia Rodriguez</h3>
+                                                    <p class="card-subtitle">sophia@example.com</p>
+                                                </div>
+                                            </div>
+                                            <span class="badge badge-secondary">Inactive</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-grid">
+                                                <div class="info-row">
+                                                    <span class="info-label">Total Trips:</span>
+                                                    <span class="info-value">5</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="info-label">Next Trip:</span>
+                                                    <span class="info-value">None</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="info-label">Date:</span>
+                                                    <span class="info-value">N/A</span>
+                                                </div>
+                                                <div class="info-row">
+                                                    <span class="info-label">Last Contact:</span>
+                                                    <span class="info-value">3 weeks ago</span>
+                                                </div>
+                                                <div class="progress-container">
+                                                    <div class="progress-header">
+                                                        <span class="info-label">Trip Planning:</span>
+                                                        <span class="info-value">100%</span>
+                                                    </div>
+                                                    <div class="progress-bar">
+                                                        <div class="progress-fill" style="width: 100%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-comment"></i>
+                                                Message
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">View Profile</a>
+                                                    <a href="#" class="dropdown-item">Edit Details</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="dropdown-item">Add Trip</a>
+                                                    <a href="#" class="dropdown-item">Schedule Follow-up</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Trips Tab -->
+                            <div class="tab-content" id="trips-tab">
+                                <div class="card-grid">
+                                    <!-- Trip Card 1 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">Paris, France</h3>
+                                                <p class="card-subtitle">Emma Thompson</p>
+                                            </div>
+                                            <span class="badge badge-primary">Upcoming</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar info-icon"></i>
+                                                <span>Jun 15, 2025 - Jun 22, 2025</span>
+                                            </div>
+                                            <div class="info-section">
+                                                <p class="info-title">Requirements:</p>
+                                                <div class="badge-container">
+                                                    <span class="badge badge-outline">Visa</span>
+                                                    <span class="badge badge-outline">Hotel</span>
+                                                    <span class="badge badge-outline">Flight</span>
+                                                </div>
+                                            </div>
+                                            <div class="info-section">
+                                                <p class="info-title">Notes:</p>
+                                                <p class="info-text">First time in Paris, interested in art museums</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-edit"></i>
+                                                Edit
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-comment"></i>
+                                                Message Client
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Trip Card 2 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">Tokyo, Japan</h3>
+                                                <p class="card-subtitle">Michael Chen</p>
+                                            </div>
+                                            <span class="badge badge-secondary">Planning</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar info-icon"></i>
+                                                <span>Jul 22, 2025 - Aug 5, 2025</span>
+                                            </div>
+                                            <div class="info-section">
+                                                <p class="info-title">Requirements:</p>
+                                                <div class="badge-container">
+                                                    <span class="badge badge-outline">Visa</span>
+                                                    <span class="badge badge-outline">Hotel</span>
+                                                    <span class="badge badge-outline">Flight</span>
+                                                    <span class="badge badge-outline">Tour Guide</span>
+                                                </div>
+                                            </div>
+                                            <div class="info-section">
+                                                <p class="info-title">Notes:</p>
+                                                <p class="info-text">Business trip with weekend free for sightseeing</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-edit"></i>
+                                                Edit
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-comment"></i>
+                                                Message Client
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Trip Card 3 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">Rome, Italy</h3>
+                                                <p class="card-subtitle">Emma Thompson</p>
+                                            </div>
+                                            <span class="badge badge-secondary">Planning</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar info-icon"></i>
+                                                <span>Sep 10, 2025 - Sep 17, 2025</span>
+                                            </div>
+                                            <div class="info-section">
+                                                <p class="info-title">Requirements:</p>
+                                                <div class="badge-container">
+                                                    <span class="badge badge-outline">Hotel</span>
+                                                    <span class="badge badge-outline">Flight</span>
+                                                </div>
+                                            </div>
+                                            <div class="info-section">
+                                                <p class="info-title">Notes:</p>
+                                                <p class="info-text">Anniversary trip, looking for romantic experiences</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-edit"></i>
+                                                Edit
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-comment"></i>
+                                                Message Client
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Add New Trip Card -->
+                                    <div class="card card-add-new">
+                                        <div class="add-new-content">
+                                            <div class="add-new-icon">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                            <h3>Add New Trip</h3>
+                                            <p>Create a new trip itinerary for your clients</p>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-plus"></i>
+                                                Add Trip
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Follow-ups Tab -->
+                            <div class="tab-content" id="followups-tab">
+                                <div class="table-container">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Client</th>
+                                                <th>Type</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Notes</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="table-user">
+                                                        <i class="fas fa-user"></i>
+                                                        <span>Emma Thompson</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-outline">
+                                                        <i class="fas fa-phone"></i>
+                                                        Call
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div class="table-info">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>May 18, 2025</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-info">
+                                                        <i class="fas fa-clock"></i>
+                                                        <span>10:00 AM</span>
+                                                    </div>
+                                                </td>
+                                                <td class="truncate">Discuss Paris itinerary details</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-icon dropdown-trigger">
+                                                            <i class="fas fa-ellipsis-h"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a href="#" class="dropdown-item">Complete</a>
+                                                            <a href="#" class="dropdown-item">Reschedule</a>
+                                                            <a href="#" class="dropdown-item">Edit</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="dropdown-item">Cancel</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="table-user">
+                                                        <i class="fas fa-user"></i>
+                                                        <span>Michael Chen</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-outline">
+                                                        <i class="fas fa-envelope"></i>
+                                                        Email
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div class="table-info">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>May 20, 2025</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-info">
+                                                        <i class="fas fa-clock"></i>
+                                                        <span>2:00 PM</span>
+                                                    </div>
+                                                </td>
+                                                <td class="truncate">Send visa application requirements</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-icon dropdown-trigger">
+                                                            <i class="fas fa-ellipsis-h"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a href="#" class="dropdown-item">Complete</a>
+                                                            <a href="#" class="dropdown-item">Reschedule</a>
+                                                            <a href="#" class="dropdown-item">Edit</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="dropdown-item">Cancel</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="table-user">
+                                                        <i class="fas fa-user"></i>
+                                                        <span>Sophia Rodriguez</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-outline">
+                                                        <i class="fab fa-whatsapp"></i>
+                                                        WhatsApp
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div class="table-info">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>May 25, 2025</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="table-info">
+                                                        <i class="fas fa-clock"></i>
+                                                        <span>11:30 AM</span>
+                                                    </div>
+                                                </td>
+                                                <td class="truncate">Follow up on potential winter vacation plans</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-icon dropdown-trigger">
+                                                            <i class="fas fa-ellipsis-h"></i>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-right">
+                                                            <a href="#" class="dropdown-item">Complete</a>
+                                                            <a href="#" class="dropdown-item">Reschedule</a>
+                                                            <a href="#" class="dropdown-item">Edit</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="dropdown-item">Cancel</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-actions">
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-plus"></i>
+                                        Add Follow-up
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Calendar Tab -->
+                            <div class="tab-content" id="calendar-tab">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Upcoming Trips Calendar</h3>
+                                        <div class="calendar-nav">
+                                            <button class="btn btn-icon">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <span class="calendar-month">May 2025</span>
+                                            <button class="btn btn-icon">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="calendar">
+                                            <div class="calendar-header">
+                                                <div class="calendar-cell">Sun</div>
+                                                <div class="calendar-cell">Mon</div>
+                                                <div class="calendar-cell">Tue</div>
+                                                <div class="calendar-cell">Wed</div>
+                                                <div class="calendar-cell">Thu</div>
+                                                <div class="calendar-cell">Fri</div>
+                                                <div class="calendar-cell">Sat</div>
+                                            </div>
+                                            <div class="calendar-body">
+                                                <!-- Week 1 -->
+                                                <div class="calendar-cell prev-month">28</div>
+                                                <div class="calendar-cell prev-month">29</div>
+                                                <div class="calendar-cell prev-month">30</div>
+                                                <div class="calendar-cell">1</div>
+                                                <div class="calendar-cell">2</div>
+                                                <div class="calendar-cell">3</div>
+                                                <div class="calendar-cell">4</div>
+                                                
+                                                <!-- Week 2 -->
+                                                <div class="calendar-cell">5</div>
+                                                <div class="calendar-cell">6</div>
+                                                <div class="calendar-cell">7</div>
+                                                <div class="calendar-cell">8</div>
+                                                <div class="calendar-cell">9</div>
+                                                <div class="calendar-cell">10</div>
+                                                <div class="calendar-cell">11</div>
+                                                
+                                                <!-- Week 3 -->
+                                                <div class="calendar-cell">12</div>
+                                                <div class="calendar-cell">13</div>
+                                                <div class="calendar-cell">14</div>
+                                                <div class="calendar-cell has-event">
+                                                    15
+                                                    <div class="calendar-event">
+                                                        <p class="event-title">Emma - Paris</p>
+                                                        <p class="event-subtitle">Trip Start</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-cell">16</div>
+                                                <div class="calendar-cell">17</div>
+                                                <div class="calendar-cell">18</div>
+                                                
+                                                <!-- Week 4 -->
+                                                <div class="calendar-cell">19</div>
+                                                <div class="calendar-cell">20</div>
+                                                <div class="calendar-cell">21</div>
+                                                <div class="calendar-cell has-event">
+                                                    22
+                                                    <div class="calendar-event">
+                                                        <p class="event-title">Michael - Tokyo</p>
+                                                        <p class="event-subtitle">Trip Start</p>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-cell">23</div>
+                                                <div class="calendar-cell">24</div>
+                                                <div class="calendar-cell">25</div>
+                                                
+                                                <!-- Week 5 -->
+                                                <div class="calendar-cell">26</div>
+                                                <div class="calendar-cell">27</div>
+                                                <div class="calendar-cell">28</div>
+                                                <div class="calendar-cell">29</div>
+                                                <div class="calendar-cell">30</div>
+                                                <div class="calendar-cell">31</div>
+                                                <div class="calendar-cell next-month">1</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Provider Module -->
+                    <div class="module-section" id="service-module">
+                        <div class="tabs">
+                            <div class="tabs-list">
+                                <button class="tab-trigger active" data-tab="projects">Projects</button>
+                                <button class="tab-trigger" data-tab="tasks">Tasks</button>
+                                <button class="tab-trigger" data-tab="leads">Leads & Deals</button>
+                                <button class="tab-trigger" data-tab="team">Team</button>
+                            </div>
+
+                            <!-- Projects Tab -->
+                            <div class="tab-content active" id="projects-tab">
+                                <div class="card-grid cols-2">
+                                    <!-- Project Card 1 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">E-commerce Website Redesign</h3>
+                                                <p class="card-subtitle">Global Retail Inc.</p>
+                                            </div>
+                                            <span class="badge badge-primary">Ongoing</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Progress:</span>
+                                                    <span class="info-value">65%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 65%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-grid cols-2">
+                                                <div class="info-section">
+                                                    <p class="info-label">Deadline</p>
+                                                    <div class="info-value-with-icon">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>Jun 30, 2025</span>
+                                                    </div>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Budget</p>
+                                                    <p class="info-value">$12,000</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Platform</p>
+                                                    <p class="info-value">Web</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Team</p>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar avatar-sm">
+                                                            <span>A</span>
+                                                        </div>
+                                                        <div class="avatar avatar-sm">
+                                                            <span>S</span>
+                                                        </div>
+                                                        <div class="avatar avatar-sm">
+                                                            <span>D</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-section">
+                                                <p class="info-label">Description</p>
+                                                <p class="info-value">Complete redesign of the client's e-commerce platform with improved UX and mobile responsiveness.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-file-alt"></i>
+                                                Details
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">Edit Project</a>
+                                                    <a href="#" class="dropdown-item">View Tasks</a>
+                                                    <a href="#" class="dropdown-item">Manage Team</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="dropdown-item">Mark as Completed</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project Card 2 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">Mobile App Development</h3>
+                                                <p class="card-subtitle">HealthTech Solutions</p>
+                                            </div>
+                                            <span class="badge badge-primary">Ongoing</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Progress:</span>
+                                                    <span class="info-value">40%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 40%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-grid cols-2">
+                                                <div class="info-section">
+                                                    <p class="info-label">Deadline</p>
+                                                    <div class="info-value-with-icon">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>Aug 15, 2025</span>
+                                                    </div>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Budget</p>
+                                                    <p class="info-value">$25,000</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Platform</p>
+                                                    <p class="info-value">iOS/Android</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Team</p>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar avatar-sm">
+                                                            <span>M</span>
+                                                        </div>
+                                                        <div class="avatar avatar-sm">
+                                                            <span>E</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-section">
+                                                <p class="info-label">Description</p>
+                                                <p class="info-value">Developing a health tracking mobile application with integration to wearable devices.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-file-alt"></i>
+                                                Details
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">Edit Project</a>
+                                                    <a href="#" class="dropdown-item">View Tasks</a>
+                                                    <a href="#" class="dropdown-item">Manage Team</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="dropdown-item">Mark as Completed</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project Card 3 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">Digital Marketing Campaign</h3>
+                                                <p class="card-subtitle">Eco Friendly Products</p>
+                                            </div>
+                                            <span class="badge badge-success">Completed</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Progress:</span>
+                                                    <span class="info-value">100%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 100%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-grid cols-2">
+                                                <div class="info-section">
+                                                    <p class="info-label">Deadline</p>
+                                                    <div class="info-value-with-icon">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>Apr 20, 2025</span>
+                                                    </div>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Budget</p>
+                                                    <p class="info-value">$8,500</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Platform</p>
+                                                    <p class="info-value">Multiple</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Team</p>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar avatar-sm">
+                                                            <span>J</span>
+                                                        </div>
+                                                        <div class="avatar avatar-sm">
+                                                            <span>R</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-section">
+                                                <p class="info-label">Description</p>
+                                                <p class="info-value">Social media and content marketing campaign to promote new product line.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-file-alt"></i>
+                                                Details
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">View Report</a>
+                                                    <a href="#" class="dropdown-item">Archive</a>
+                                                    <a href="#" class="dropdown-item">Duplicate</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Project Card 4 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">CRM System Integration</h3>
+                                                <p class="card-subtitle">Financial Services Co.</p>
+                                            </div>
+                                            <span class="badge badge-danger">Delayed</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Progress:</span>
+                                                    <span class="info-value">30%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 30%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-grid cols-2">
+                                                <div class="info-section">
+                                                    <p class="info-label">Deadline</p>
+                                                    <div class="info-value-with-icon">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <span>May 10, 2025</span>
+                                                    </div>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Budget</p>
+                                                    <p class="info-value">$18,000</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Platform</p>
+                                                    <p class="info-value">Web</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Team</p>
+                                                    <div class="avatar-group">
+                                                        <div class="avatar avatar-sm">
+                                                            <span>T</span>
+                                                        </div>
+                                                        <div class="avatar avatar-sm">
+                                                            <span>L</span>
+                                                        </div>
+                                                        <div class="avatar avatar-sm">
+                                                            <span>J</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-section">
+                                                <p class="info-label">Description</p>
+                                                <p class="info-value">Integration of new CRM system with existing customer database and workflows.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-file-alt"></i>
+                                                Details
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">Edit Project</a>
+                                                    <a href="#" class="dropdown-item">View Tasks</a>
+                                                    <a href="#" class="dropdown-item">Manage Team</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="dropdown-item">Extend Deadline</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tasks Tab -->
+                            <div class="tab-content" id="tasks-tab">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Task List</h3>
+                                        <button class="btn btn-primary">
+                                            <i class="fas fa-plus"></i>
+                                            Add Task
+                                        </button>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="table-container">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Task</th>
+                                                        <th>Project</th>
+                                                        <th>Assignee</th>
+                                                        <th>Deadline</th>
+                                                        <th>Priority</th>
+                                                        <th>Status</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="truncate">Finalize homepage wireframes</td>
+                                                        <td class="truncate">E-commerce Website Redesign</td>
+                                                        <td>
+                                                            <div class="table-user">
+                                                                <div class="avatar avatar-sm">
+                                                                    <span>S</span>
+                                                                </div>
+                                                                <span>Sarah</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="table-info">
+                                                                <i class="fas fa-calendar"></i>
+                                                                <span>May 20, 2025</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-primary">High</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-primary">In Progress</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-icon dropdown-trigger">
+                                                                    <i class="fas fa-ellipsis-h"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="#" class="dropdown-item">Edit</a>
+                                                                    <a href="#" class="dropdown-item">Mark Complete</a>
+                                                                    <a href="#" class="dropdown-item">Reassign</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a href="#" class="dropdown-item">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="truncate">Implement product filtering</td>
+                                                        <td class="truncate">E-commerce Website Redesign</td>
+                                                        <td>
+                                                            <div class="table-user">
+                                                                <div class="avatar avatar-sm">
+                                                                    <span>D</span>
+                                                                </div>
+                                                                <span>David</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="table-info">
+                                                                <i class="fas fa-calendar"></i>
+                                                                <span>May 25, 2025</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-secondary">Medium</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-secondary">Not Started</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-icon dropdown-trigger">
+                                                                    <i class="fas fa-ellipsis-h"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="#" class="dropdown-item">Edit</a>
+                                                                    <a href="#" class="dropdown-item">Mark Complete</a>
+                                                                    <a href="#" class="dropdown-item">Reassign</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a href="#" class="dropdown-item">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="truncate">Design user profile screens</td>
+                                                        <td class="truncate">Mobile App Development</td>
+                                                        <td>
+                                                            <div class="table-user">
+                                                                <div class="avatar avatar-sm">
+                                                                    <span>E</span>
+                                                                </div>
+                                                                <span>Emma</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="table-info">
+                                                                <i class="fas fa-calendar"></i>
+                                                                <span>May 22, 2025</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-secondary">Medium</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-primary">In Progress</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-icon dropdown-trigger">
+                                                                    <i class="fas fa-ellipsis-h"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="#" class="dropdown-item">Edit</a>
+                                                                    <a href="#" class="dropdown-item">Mark Complete</a>
+                                                                    <a href="#" class="dropdown-item">Reassign</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a href="#" class="dropdown-item">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="truncate">Implement authentication flow</td>
+                                                        <td class="truncate">Mobile App Development</td>
+                                                        <td>
+                                                            <div class="table-user">
+                                                                <div class="avatar avatar-sm">
+                                                                    <span>M</span>
+                                                                </div>
+                                                                <span>Michael</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="table-info">
+                                                                <i class="fas fa-calendar"></i>
+                                                                <span>May 28, 2025</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-primary">High</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-secondary">Not Started</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-icon dropdown-trigger">
+                                                                    <i class="fas fa-ellipsis-h"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="#" class="dropdown-item">Edit</a>
+                                                                    <a href="#" class="dropdown-item">Mark Complete</a>
+                                                                    <a href="#" class="dropdown-item">Reassign</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a href="#" class="dropdown-item">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="truncate">Data migration planning</td>
+                                                        <td class="truncate">CRM System Integration</td>
+                                                        <td>
+                                                            <div class="table-user">
+                                                                <div class="avatar avatar-sm">
+                                                                    <span>T</span>
+                                                                </div>
+                                                                <span>Thomas</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="table-info">
+                                                                <i class="fas fa-calendar"></i>
+                                                                <span>May 15, 2025</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-danger">Critical</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-danger">Overdue</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-icon dropdown-trigger">
+                                                                    <i class="fas fa-ellipsis-h"></i>
+                                                                </button>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="#" class="dropdown-item">Edit</a>
+                                                                    <a href="#" class="dropdown-item">Mark Complete</a>
+                                                                    <a href="#" class="dropdown-item">Reassign</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a href="#" class="dropdown-item">Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Leads Tab -->
+                            <div class="tab-content" id="leads-tab">
+                                <div class="card-grid">
+                                    <!-- Lead Card 1 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">TechStart Inc.</h3>
+                                                <p class="card-subtitle">Web Development</p>
+                                            </div>
+                                            <span class="badge badge-primary">New Lead</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-section">
+                                                <p class="info-title">Contact Information:</p>
+                                                <div class="contact-info">
+                                                    <div class="contact-row">
+                                                        <i class="fas fa-user"></i>
+                                                        <span>James Wilson</span>
+                                                    </div>
+                                                    <div class="contact-row">
+                                                        <i class="fas fa-envelope"></i>
+                                                        <span>james@techstart.com</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar info-icon"></i>
+                                                <span>Last Contact: May 10, 2025</span>
+                                            </div>
+
+                                            <div class="info-section">
+                                                <p class="info-title">Notes:</p>
+                                                <p class="info-text">Interested in a company website redesign</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-edit"></i>
+                                                Edit
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-plus"></i>
+                                                Schedule Follow-up
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Lead Card 2 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">Green Earth NGO</h3>
+                                                <p class="card-subtitle">Digital Marketing</p>
+                                            </div>
+                                            <span class="badge badge-secondary">Proposal Sent</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-section">
+                                                <p class="info-title">Contact Information:</p>
+                                                <div class="contact-info">
+                                                    <div class="contact-row">
+                                                        <i class="fas fa-user"></i>
+                                                        <span>Maria Garcia</span>
+                                                    </div>
+                                                    <div class="contact-row">
+                                                        <i class="fas fa-envelope"></i>
+                                                        <span>maria@greenearth.org</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar info-icon"></i>
+                                                <span>Last Contact: May 8, 2025</span>
+                                            </div>
+
+                                            <div class="info-section">
+                                                <p class="info-title">Notes:</p>
+                                                <p class="info-text">Proposal for social media campaign sent</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-edit"></i>
+                                                Edit
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-plus"></i>
+                                                Schedule Follow-up
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Lead Card 3 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div>
+                                                <h3 class="card-title">Fitness First</h3>
+                                                <p class="card-subtitle">Mobile App</p>
+                                            </div>
+                                            <span class="badge badge-outline">Follow-up</span>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-section">
+                                                <p class="info-title">Contact Information:</p>
+                                                <div class="contact-info">
+                                                    <div class="contact-row">
+                                                        <i class="fas fa-user"></i>
+                                                        <span>Robert Johnson</span>
+                                                    </div>
+                                                    <div class="contact-row">
+                                                        <i class="fas fa-envelope"></i>
+                                                        <span>robert@fitnessfirst.com</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar info-icon"></i>
+                                                <span>Last Contact: May 5, 2025</span>
+                                            </div>
+
+                                            <div class="info-section">
+                                                <p class="info-title">Notes:</p>
+                                                <p class="info-text">Follow up on initial meeting discussion</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-edit"></i>
+                                                Edit
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-plus"></i>
+                                                Schedule Follow-up
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Add New Lead Card -->
+                                    <div class="card card-add-new">
+                                        <div class="add-new-content">
+                                            <div class="add-new-icon">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                            <h3>Add New Lead</h3>
+                                            <p>Create a new lead or business opportunity</p>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-plus"></i>
+                                                Add Lead
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Team Tab -->
+                            <div class="tab-content" id="team-tab">
+                                <div class="card-grid cols-4">
+                                    <!-- Team Member 1 -->
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            <div class="avatar avatar-lg centered">
+                                                <img src="https://via.placeholder.com/80" alt="Alex">
+                                            </div>
+                                            <h3 class="card-title">Alex</h3>
+                                            <p class="card-subtitle">Web Developer</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-row">
+                                                <span class="info-label">Active Projects:</span>
+                                                <span class="info-value">2</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Tasks:</span>
+                                                <span class="info-value">5</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Availability:</span>
+                                                <span class="badge badge-outline">Available</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer centered">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-users"></i>
+                                                View Projects
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Team Member 2 -->
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            <div class="avatar avatar-lg centered">
+                                                <img src="https://via.placeholder.com/80" alt="Sarah">
+                                            </div>
+                                            <h3 class="card-title">Sarah</h3>
+                                            <p class="card-subtitle">UI/UX Designer</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-row">
+                                                <span class="info-label">Active Projects:</span>
+                                                <span class="info-value">3</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Tasks:</span>
+                                                <span class="info-value">7</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Availability:</span>
+                                                <span class="badge badge-outline">Fully Booked</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer centered">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-users"></i>
+                                                View Projects
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Team Member 3 -->
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            <div class="avatar avatar-lg centered">
+                                                <img src="https://via.placeholder.com/80" alt="David">
+                                            </div>
+                                            <h3 class="card-title">David</h3>
+                                            <p class="card-subtitle">Web Developer</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-row">
+                                                <span class="info-label">Active Projects:</span>
+                                                <span class="info-value">1</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Tasks:</span>
+                                                <span class="info-value">3</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Availability:</span>
+                                                <span class="badge badge-outline">Available</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer centered">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-users"></i>
+                                                View Projects
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Team Member 4 -->
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            <div class="avatar avatar-lg centered">
+                                                <img src="https://via.placeholder.com/80" alt="Michael">
+                                            </div>
+                                            <h3 class="card-title">Michael</h3>
+                                            <p class="card-subtitle">Project Manager</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-row">
+                                                <span class="info-label">Active Projects:</span>
+                                                <span class="info-value">2</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Tasks:</span>
+                                                <span class="info-value">4</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Availability:</span>
+                                                <span class="badge badge-outline">Available</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer centered">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-users"></i>
+                                                View Projects
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Team Member 5 -->
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            <div class="avatar avatar-lg centered">
+                                                <img src="https://via.placeholder.com/80" alt="Emma">
+                                            </div>
+                                            <h3 class="card-title">Emma</h3>
+                                            <p class="card-subtitle">UI/UX Designer</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-row">
+                                                <span class="info-label">Active Projects:</span>
+                                                <span class="info-value">1</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Tasks:</span>
+                                                <span class="info-value">2</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Availability:</span>
+                                                <span class="badge badge-outline">Available</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer centered">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-users"></i>
+                                                View Projects
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Team Member 6 -->
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            <div class="avatar avatar-lg centered">
+                                                <img src="https://via.placeholder.com/80" alt="Jessica">
+                                            </div>
+                                            <h3 class="card-title">Jessica</h3>
+                                            <p class="card-subtitle">Digital Marketer</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-row">
+                                                <span class="info-label">Active Projects:</span>
+                                                <span class="info-value">1</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Tasks:</span>
+                                                <span class="info-value">3</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Availability:</span>
+                                                <span class="badge badge-outline">Available</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer centered">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-users"></i>
+                                                View Projects
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Team Member 7 -->
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            <div class="avatar avatar-lg centered">
+                                                <img src="https://via.placeholder.com/80" alt="Ryan">
+                                            </div>
+                                            <h3 class="card-title">Ryan</h3>
+                                            <p class="card-subtitle">Content Writer</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-row">
+                                                <span class="info-label">Active Projects:</span>
+                                                <span class="info-value">1</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Tasks:</span>
+                                                <span class="info-value">2</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Availability:</span>
+                                                <span class="badge badge-outline">Available</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer centered">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-users"></i>
+                                                View Projects
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Team Member 8 -->
+                                    <div class="card">
+                                        <div class="card-header text-center">
+                                            <div class="avatar avatar-lg centered">
+                                                <img src="https://via.placeholder.com/80" alt="Thomas">
+                                            </div>
+                                            <h3 class="card-title">Thomas</h3>
+                                            <p class="card-subtitle">Backend Developer</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-row">
+                                                <span class="info-label">Active Projects:</span>
+                                                <span class="info-value">2</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Tasks:</span>
+                                                <span class="info-value">4</span>
+                                            </div>
+                                            <div class="info-row">
+                                                <span class="info-label">Availability:</span>
+                                                <span class="badge badge-outline">Fully Booked</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer centered">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-users"></i>
+                                                View Projects
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coaching Institute Module -->
+                    <div class="module-section" id="coaching-module">
+                        <div class="tabs">
+                            <div class="tabs-list">
+                                <button class="tab-trigger active" data-tab="students">Students</button>
+                                <button class="tab-trigger" data-tab="courses">Courses</button>
+                                <button class="tab-trigger" data-tab="admissions">Admissions</button>
+                                <button class="tab-trigger" data-tab="certificates">Certificates</button>
+                            </div>
+
+                            <!-- Students Tab -->
+                            <div class="tab-content active" id="students-tab">
+                                <div class="card-grid">
+                                    <!-- Student Card 1 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="user-info">
+                                                <div class="avatar">
+                                                    <img src="https://via.placeholder.com/40" alt="Olivia Parker">
+                                                </div>
+                                                <div>
+                                                    <h3 class="card-title">Olivia Parker</h3>
+                                                    <p class="card-subtitle">olivia@example.com</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-grid cols-2">
+                                                <div class="info-section">
+                                                    <p class="info-label">Course</p>
+                                                    <p class="info-value">Web Development Bootcamp</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Batch</p>
+                                                    <p class="info-value">Spring 2025</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Course Progress:</span>
+                                                    <span class="info-value">65%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 65%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Attendance:</span>
+                                                    <span class="info-value">90%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 90%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="fee-details">
+                                                <p class="info-title">Fee Details</p>
+                                                <div class="info-grid cols-2">
+                                                    <p class="info-label">Total:</p>
+                                                    <p class="info-value">$1,200</p>
+                                                    <p class="info-label">Paid:</p>
+                                                    <p class="info-value">$800</p>
+                                                    <p class="info-label">Due:</p>
+                                                    <p class="info-value">$400</p>
+                                                    <p class="info-label">Next Due:</p>
+                                                    <p class="info-value">May 30, 2025</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-comment"></i>
+                                                Message
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">View Profile</a>
+                                                    <a href="#" class="dropdown-item">Edit Details</a>
+                                                    <a href="#" class="dropdown-item">Record Payment</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="dropdown-item">Issue Certificate</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Student Card 2 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="user-info">
+                                                <div class="avatar">
+                                                    <img src="https://via.placeholder.com/40" alt="Ethan Williams">
+                                                </div>
+                                                <div>
+                                                    <h3 class="card-title">Ethan Williams</h3>
+                                                    <p class="card-subtitle">ethan@example.com</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-grid cols-2">
+                                                <div class="info-section">
+                                                    <p class="info-label">Course</p>
+                                                    <p class="info-value">Digital Marketing Masterclass</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Batch</p>
+                                                    <p class="info-value">Summer 2025</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Course Progress:</span>
+                                                    <span class="info-value">40%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 40%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Attendance:</span>
+                                                    <span class="info-value">85%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 85%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="fee-details">
+                                                <p class="info-title">Fee Details</p>
+                                                <div class="info-grid cols-2">
+                                                    <p class="info-label">Total:</p>
+                                                    <p class="info-value">$950</p>
+                                                    <p class="info-label">Paid:</p>
+                                                    <p class="info-value">$950</p>
+                                                    <p class="info-label">Due:</p>
+                                                    <p class="info-value">$0</p>
+                                                    <p class="info-label">Next Due:</p>
+                                                    <p class="info-value">Paid in Full</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-comment"></i>
+                                                Message
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">View Profile</a>
+                                                    <a href="#" class="dropdown-item">Edit Details</a>
+                                                    <a href="#" class="dropdown-item">Record Payment</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="dropdown-item">Issue Certificate</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Student Card 3 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <div class="user-info">
+                                                <div class="avatar">
+                                                    <img src="https://via.placeholder.com/40" alt="Sophia Martinez">
+                                                </div>
+                                                <div>
+                                                    <h3 class="card-title">Sophia Martinez</h3>
+                                                    <p class="card-subtitle">sophia@example.com</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-grid cols-2">
+                                                <div class="info-section">
+                                                    <p class="info-label">Course</p>
+                                                    <p class="info-value">UI/UX Design Course</p>
+                                                </div>
+                                                <div class="info-section">
+                                                    <p class="info-label">Batch</p>
+                                                    <p class="info-value">Spring 2025</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Course Progress:</span>
+                                                    <span class="info-value">80%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 80%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="progress-container">
+                                                <div class="progress-header">
+                                                    <span class="info-label">Attendance:</span>
+                                                    <span class="info-value">95%</span>
+                                                </div>
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill" style="width: 95%"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="fee-details">
+                                                <p class="info-title">Fee Details</p>
+                                                <div class="info-grid cols-2">
+                                                    <p class="info-label">Total:</p>
+                                                    <p class="info-value">$1,500</p>
+                                                    <p class="info-label">Paid:</p>
+                                                    <p class="info-value">$1,000</p>
+                                                    <p class="info-label">Due:</p>
+                                                    <p class="info-value">$500</p>
+                                                    <p class="info-label">Next Due:</p>
+                                                    <p class="info-value">Jun 15, 2025</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-comment"></i>
+                                                Message
+                                            </button>
+                                            <div class="dropdown">
+                                                <button class="btn btn-icon dropdown-trigger">
+                                                    <i class="fas fa-ellipsis-h"></i>
+                                                </button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <div class="dropdown-header">Actions</div>
+                                                    <a href="#" class="dropdown-item">View Profile</a>
+                                                    <a href="#" class="dropdown-item">Edit Details</a>
+                                                    <a href="#" class="dropdown-item">Record Payment</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="dropdown-item">Issue Certificate</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Courses Tab -->
+                            <div class="tab-content" id="courses-tab">
+                                <div class="card-grid">
+                                    <!-- Course Card 1 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Web Development Bootcamp</h3>
+                                            <p class="card-subtitle">Duration: 12 weeks</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-item">
+                                                <i class="fas fa-user info-icon"></i>
+                                                <span>Instructor: Professor Johnson</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-users info-icon"></i>
+                                                <span>Students: 24</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar info-icon"></i>
+                                                <span>Mar 15, 2025 - Jun 7, 2025</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-clock info-icon"></i>
+                                                <span>Mon, Wed, Fri (6:00 PM - 8:00 PM)</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-file-alt"></i>
+                                                View Syllabus
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-users"></i>
+                                                View Students
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Course Card 2 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">Digital Marketing Masterclass</h3>
+                                            <p class="card-subtitle">Duration: 8 weeks</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-item">
+                                                <i class="fas fa-user info-icon"></i>
+                                                <span>Instructor: Dr. Emily Chen</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-users info-icon"></i>
+                                                <span>Students: 18</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar info-icon"></i>
+                                                <span>Jun 10, 2025 - Aug 5, 2025</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-clock info-icon"></i>
+                                                <span>Tue, Thu (5:30 PM - 7:30 PM)</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-file-alt"></i>
+                                                View Syllabus
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-users"></i>
+                                                View Students
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Course Card 3 -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="card-title">UI/UX Design Course</h3>
+                                            <p class="card-subtitle">Duration: 10 weeks</p>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="info-item">
+                                                <i class="fas fa-user info-icon"></i>
+                                                <span>Instructor: Sarah Williams</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-users info-icon"></i>
+                                                <span>Students: 15</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-calendar info-icon"></i>
+                                                <span>Apr 5, 2025 - Jun 14, 2025</span>
+                                            </div>
+                                            <div class="info-item">
+                                                <i class="fas fa-clock info-icon"></i>
+                                                <span>Sat, Sun (10:00 AM - 1:00 PM)</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button class="btn btn-outline">
+                                                <i class="fas fa-file-alt"></i>
+                                                View Syllabus
+                                            </button>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-users"></i>
+                                                View Students
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Add New Course Card -->
+                                    <div class="card card-add-new">
+                                        <div class="add-new-content">
+                                            <div class="add-new-icon">
+                                                <i class="fas fa-plus"></i>
+                                            </div>
+                                            <h3>Add New Course</h3>
+                                            <p>Create a new course or training program</p>
+                                            <button class="btn btn-primary">
+                                                <i class="fas fa-plus"></i>
+                                                Add Course
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Admissions Tab -->
+                            <div class="tab-content" id="admissions-tab">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Admission Inquiries</h3>
+                                        <button class="btn btn-primary">
+                                            <i class="fas fa-plus"></i>
+                                            Add Inquiry
+                                        </button>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="table-container">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Course</th>
+                                                        <th>Contact</th>
+                                                        <th>Status</th>
+                                                        <th>Date</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Noah Brown</td>
+                                                        <td>Web Development Bootcamp</td>
+                                                        <td>
+                                                            <div class="contact-info-small">
+                                                                <div>noah@example.com</div>
+                                                                <div>+1 (555) 123-4567</div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-primary">New Inquiry</span>
+                                                        </td>
+                                                        <td>May 12, 2025</td>
+                                                        <td>
+                                                            <div class="action-buttons">
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-comment"></i>
+                                                                </button>
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-calendar"></i>
+                                                                </button>
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-icon dropdown-trigger">
+                                                                        <i class="fas fa-ellipsis-h"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a href="#" class="dropdown-item">Edit Details</a>
+                                                                        <a href="#" class="dropdown-item">Update Status</a>
+                                                                        <a href="#" class="dropdown-item">Add Notes</a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a href="#" class="dropdown-item">Convert to Student</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ava Johnson</td>
+                                                        <td>Digital Marketing Masterclass</td>
+                                                        <td>
+                                                            <div class="contact-info-small">
+                                                                <div>ava@example.com</div>
+                                                                <div>+1 (555) 987-6543</div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-secondary">Follow-up</span>
+                                                        </td>
+                                                        <td>May 8, 2025</td>
+                                                        <td>
+                                                            <div class="action-buttons">
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-comment"></i>
+                                                                </button>
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-calendar"></i>
+                                                                </button>
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-icon dropdown-trigger">
+                                                                        <i class="fas fa-ellipsis-h"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a href="#" class="dropdown-item">Edit Details</a>
+                                                                        <a href="#" class="dropdown-item">Update Status</a>
+                                                                        <a href="#" class="dropdown-item">Add Notes</a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a href="#" class="dropdown-item">Convert to Student</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Liam Wilson</td>
+                                                        <td>UI/UX Design Course</td>
+                                                        <td>
+                                                            <div class="contact-info-small">
+                                                                <div>liam@example.com</div>
+                                                                <div>+1 (555) 456-7890</div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge badge-outline">Application Received</span>
+                                                        </td>
+                                                        <td>May 10, 2025</td>
+                                                        <td>
+                                                            <div class="action-buttons">
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-comment"></i>
+                                                                </button>
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-calendar"></i>
+                                                                </button>
+                                                                <div class="dropdown">
+                                                                    <button class="btn btn-icon dropdown-trigger">
+                                                                        <i class="fas fa-ellipsis-h"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a href="#" class="dropdown-item">Edit Details</a>
+                                                                        <a href="#" class="dropdown-item">Update Status</a>
+                                                                        <a href="#" class="dropdown-item">Add Notes</a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a href="#" class="dropdown-item">Convert to Student</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificates Tab -->
+                            <div class="tab-content" id="certificates-tab">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Certificate Management</h3>
+                                        <button class="btn btn-primary">
+                                            <i class="fas fa-plus"></i>
+                                            Issue Certificate
+                                        </button>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="table-container">
+                                            <table class="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Student</th>
+                                                        <th>Course</th>
+                                                        <th>Issue Date</th>
+                                                        <th>Certificate ID</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="table-user">
+                                                                <div class="avatar avatar-sm">
+                                                                    <span>ET</span>
+                                                                </div>
+                                                                <span>Ethan Williams</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>Digital Marketing Masterclass</td>
+                                                        <td>Apr 30, 2025</td>
+                                                        <td>CERT-DM-2025-042</td>
+                                                        <td>
+                                                            <div class="action-buttons">
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-download"></i>
+                                                                </button>
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="table-user">
+                                                                <div class="avatar avatar-sm">
+                                                                    <span>SM</span>
+                                                                </div>
+                                                                <span>Sophia Martinez</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>UI/UX Design Course</td>
+                                                        <td>Apr 15, 2025</td>
+                                                        <td>CERT-UX-2025-031</td>
+                                                        <td>
+                                                            <div class="action-buttons">
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-download"></i>
+                                                                </button>
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="table-user">
+                                                                <div class="avatar avatar-sm">
+                                                                    <span>JD</span>
+                                                                </div>
+                                                                <span>James Davis</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>Web Development Bootcamp</td>
+                                                        <td>Mar 20, 2025</td>
+                                                        <td>CERT-WD-2025-018</td>
+                                                        <td>
+                                                            <div class="action-buttons">
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-download"></i>
+                                                                </button>
+                                                                <button class="btn btn-icon">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Certificate Templates</h3>
+                                        <p class="card-subtitle">Manage certificate designs and templates</p>
+                                    </div>
+                                    <div class="card-content">
+                                        <div class="template-grid">
+                                            <div class="template-card">
+                                                <div class="template-header">
+                                                    <h4>Course Completion</h4>
+                                                    <span class="badge badge-outline">Default</span>
+                                                </div>
+                                                <div class="template-preview">
+                                                    <i class="fas fa-graduation-cap"></i>
+                                                </div>
+                                                <div class="template-actions">
+                                                    <button class="btn btn-outline">Preview</button>
+                                                    <button class="btn btn-outline">Edit</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="template-card">
+                                                <div class="template-header">
+                                                    <h4>Excellence Award</h4>
+                                                    <span class="badge badge-outline">Custom</span>
+                                                </div>
+                                                <div class="template-preview">
+                                                    <i class="fas fa-award"></i>
+                                                </div>
+                                                <div class="template-actions">
+                                                    <button class="btn btn-outline">Preview</button>
+                                                    <button class="btn btn-outline">Edit</button>
+                                                </div>
+                                            </div>
+
+                                            <div class="template-card add-new">
+                                                <div class="add-new-content">
+                                                    <div class="add-new-icon">
+                                                        <i class="fas fa-plus"></i>
+                                                    </div>
+                                                    <h4>Create New Template</h4>
+                                                    <p>Design a new certificate template</p>
+                                                    <button class="btn btn-primary">Create Template</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add New Modal -->
+    <div class="modal" id="add-new-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Add New Client</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" class="form-textarea"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
